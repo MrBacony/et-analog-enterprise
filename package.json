@@ -2,7 +2,9 @@
   "name": "@et-analog-enterprise/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "slidev": "slidev ./presentation/slides.md --open"
+  },
   "private": true,
   "dependencies": {
     "@angular/common": "~20.0.0",
@@ -11,6 +13,7 @@
     "@angular/forms": "~20.0.0",
     "@angular/platform-browser": "~20.0.0",
     "@angular/router": "~20.0.0",
+    "@slidev/theme-default": "^0.25.0",
     "rxjs": "~7.8.0",
     "zone.js": "~0.15.0"
   },
@@ -33,6 +36,8 @@
     "@nx/web": "21.2.1",
     "@nx/workspace": "21.2.1",
     "@schematics/angular": "~20.0.0",
+    "@slidev/cli": "^51.8.2",
+    "@slidev/theme-seriph": "^0.25.0",
     "@swc-node/register": "~1.9.1",
     "@swc/core": "~1.5.7",
     "@swc/helpers": "~0.5.11",
