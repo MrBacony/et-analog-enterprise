@@ -6,7 +6,7 @@ import {
 } from '@angular/common/http';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideFileRouter, requestContextInterceptor } from '@analogjs/router';
-
+import { authInterceptor, provideAuthClient } from '@analog-tools/auth/angular';
 import { provideTrpcClient } from '../trpc-client';
 
 export const appConfig: ApplicationConfig = {
@@ -15,9 +15,10 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideFileRouter(),
     provideClientHydration(),
+    provideAuthClient(),
     provideHttpClient(
       withFetch(),
-      withInterceptors([requestContextInterceptor])
+      withInterceptors([requestContextInterceptor, authInterceptor])
     ),
 
     provideTrpcClient(),
