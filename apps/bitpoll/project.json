@@ -1,0 +1,72 @@
+{
+  "name": "bitpoll",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "app",
+  "sourceRoot": "apps/bitpoll/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@analogjs/platform:vite",
+      "options": {
+        "configFile": "apps/bitpoll/vite.config.ts",
+        "main": "apps/bitpoll/src/main.ts",
+        "outputPath": "dist/apps/bitpoll/client",
+        "tsConfig": "apps/bitpoll/tsconfig.app.json"
+      },
+      "defaultConfiguration": "production",
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "sourcemap": false,
+          "mode": "production"
+        }
+      },
+      "outputs": ["{workspaceRoot}/dist/apps/bitpoll"]
+    },
+    "serve": {
+      "executor": "@analogjs/platform:vite-dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "bitpoll:build",
+        "port": 4200
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "bitpoll:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "bitpoll:build:production"
+        }
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular/build:extract-i18n",
+      "options": {
+        "buildTarget": "bitpoll:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "test": {
+      "executor": "@analogjs/vitest-angular:test",
+      "options": {
+        "config": "vite.config.ts"
+      }
+    },
+    "serve-static": {
+      "continuous": true,
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "bitpoll:build",
+        "port": 4200,
+        "staticFilePath": "dist/apps/bitpoll/browser",
+        "spa": true
+      }
+    }
+  }
+}
