@@ -35,36 +35,6 @@ mdc: true
 </div>
 
 ---
-layout: center
-class: text-center
----
-
-# 🏢 Das Enterprise-Security Problem
-
-<div class="text-6xl mb-8">
-😱 ➡️ 🔐 ➡️ 😌
-</div>
-
-## Wer kennt das?
-
-<v-clicks>
-
-```typescript
-// ❌ JWT im localStorage - Sicherheitsrisiko!
-localStorage.setItem('jwt', response.token);
-
-// ❌ Manuelle Token-Validation - Fehleranfällig!
-if (isTokenExpired(jwt)) await refreshToken();
-
-// ❌ XSS-Vulnerabilities - Angreifbar!
-const token = localStorage.getItem('jwt');
-```
-
-**Heute zeigen wir Ihnen echte Enterprise-Architektur!**
-
-</v-clicks>
-
----
 transition: fade-out
 ---
 
@@ -351,29 +321,39 @@ layout: code-split
 
 ### 🔐 @analog-tools/auth Setup
 ```typescript
-// main.ts - Nur diese Config!
-import { provideAuth } from '@analog-tools/auth';
+// Moderne Architektur: getrennte Client- und Server-Config
 
-bootstrapApplication(AppComponent, {
+// 1. Client-Config (app.config.ts)
+import { provideAuthClient, authInterceptor } from '@analog-tools/auth/angular';
+
+export const appConfig: ApplicationConfig = {
   providers: [
-    provideAuth({
-      providers: [
-        {
-          name: 'keycloak',
-          type: 'oidc',
-          issuer: 'http://localhost:8080/realms/poll-app',
-          clientId: 'analog-poll-app',
-          clientSecret: process.env['KEYCLOAK_SECRET'],
-          scope: 'openid profile email roles'
-        }
-      ],
-      session: {
-        strategy: 'server-side', // JWT bleibt auf Server!
-        maxAge: 30 * 60 // 30 Minuten
-      }
-    })
+    // Auth-Client für Angular
+    provideAuthClient(),
+    
+    // HTTP-Interceptor für Auth-Header
+    provideHttpClient(
+      withInterceptors([authInterceptor])
+    )
   ]
-});
+};
+
+// 2. Server-Config (auth.config.ts)
+export const authConfig: AnalogAuthConfig = {
+  issuer: process.env['AUTH_ISSUER'],
+  clientId: process.env['AUTH_CLIENT_ID'],
+  clientSecret: process.env['AUTH_CLIENT_SECRET'],
+  scope: process.env['AUTH_SCOPE'],
+  
+  // Server-Side Sessions mit Redis
+  sessionStorage: {
+    type: 'redis',
+    config: {
+      url: process.env['REDIS_HOST'] || 'localhost',
+      port: process.env['REDIS_PORT'] || 6379
+    }
+  }
+};
 ```
 
 ::right::
