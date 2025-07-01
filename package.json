@@ -9,7 +9,7 @@
   "dependencies": {
     "@analogjs/content": "^1.19.0",
     "@analogjs/router": "^1.19.0",
-    "@analogjs/trpc": "~0.3.0",
+    "@analogjs/trpc": "~0.4.0",
     "@angular/common": "~20.0.0",
     "@angular/compiler": "~20.0.0",
     "@angular/core": "~20.0.0",
