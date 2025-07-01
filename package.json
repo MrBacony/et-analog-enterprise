@@ -37,6 +37,10 @@
     "zone.js": "~0.15.0"
   },
   "devDependencies": {
+    "@analog-tools/auth": "^0.0.4",
+    "@analog-tools/inject": "^0.0.4",
+    "@analog-tools/logger": "^0.0.4",
+    "@analog-tools/session": "^0.0.4",
     "@analogjs/platform": "^1.19.0",
     "@analogjs/vite-plugin-angular": "^1.19.0",
     "@analogjs/vitest-angular": "^1.19.0",
