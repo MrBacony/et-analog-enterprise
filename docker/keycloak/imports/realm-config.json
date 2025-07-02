@@ -3,6 +3,18 @@
   "enabled": true,
   "displayName": "DEV Realm",
   "displayNameHtml": "DEV Realm",
+  "roles": {
+    "realm": [
+      {
+        "name": "admin",
+        "description": "Administrator role"
+      },
+      {
+        "name": "user",
+        "description": "User role"
+      }
+    ]
+  },
   "clients": [
     {
       "clientId": "local",
@@ -122,6 +134,66 @@
       ],
       "requiredActions": [],
       "realmRoles": ["default-roles-dev"],
+      "attributes": {
+        "locale": ["en"]
+      }
+    },
+    {
+      "username": "admin",
+      "enabled": true,
+      "firstName": "Admin",
+      "lastName": "User",
+      "email": "admin@company.com",
+      "emailVerified": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "admin123",
+          "temporary": false
+        }
+      ],
+      "requiredActions": [],
+      "realmRoles": ["admin", "user", "default-roles-dev"],
+      "attributes": {
+        "locale": ["en"]
+      }
+    },
+    {
+      "username": "user1",
+      "enabled": true,
+      "firstName": "User",
+      "lastName": "One",
+      "email": "user1@company.com",
+      "emailVerified": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "user123",
+          "temporary": false
+        }
+      ],
+      "requiredActions": [],
+      "realmRoles": ["user", "default-roles-dev"],
+      "attributes": {
+        "locale": ["en"]
+      }
+    },
+    {
+      "username": "user2",
+      "enabled": true,
+      "firstName": "User",
+      "lastName": "Two",
+      "email": "user2@company.com",
+      "emailVerified": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "user123",
+          "temporary": false
+        }
+      ],
+      "requiredActions": [],
+      "realmRoles": ["user", "default-roles-dev"],
       "attributes": {
         "locale": ["en"]
       }
