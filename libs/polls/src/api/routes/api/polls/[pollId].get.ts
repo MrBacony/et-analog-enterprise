@@ -1,6 +1,7 @@
 import { inject } from '@analog-tools/inject';
 import { defineEventHandler, H3Event, getRouterParam, createError } from 'h3';
 import { PollsService } from '../../../services/polls.service';
+import { PollSchema } from '../../../../lib/polls/models/polls';
 
 export default defineEventHandler((event: H3Event) => {
     const pollId = getRouterParam(event, 'pollId');
@@ -12,10 +13,11 @@ export default defineEventHandler((event: H3Event) => {
     }
 
     const poll = inject(PollsService).getPoll(pollId);
-    if (!poll) {
+    if (!PollSchema.parse(poll)) {
         throw createError({
       statusCode: 404,
       statusMessage: `Poll with ID ${pollId} not found`,
     });
     }
+    return poll;
 });

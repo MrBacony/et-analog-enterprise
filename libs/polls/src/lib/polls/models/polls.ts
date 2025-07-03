@@ -18,7 +18,7 @@ export const PollSchema = z.object({
   id: z.string().uuid(),
   name: z.string().min(1).max(200),
   question: z.string().min(1).max(1000),
-  owner: z.string().uuid(),
+  owner: z.string(),
   options: z.array(PollOptionSchema).min(2)
 });
 
@@ -37,3 +37,27 @@ export const UpdatePollSchema = CreatePollSchema.partial().extend({
 });
 
 export type UpdatePoll = z.infer<typeof UpdatePollSchema>;
+
+
+export const VoteSchema = z.object({
+  id: z.string().uuid(),
+  pollId: z.string().uuid(),
+  optionId: z.string().uuid(), // Vereinfacht: nur eine Option pro Vote
+  userId: z.string().uuid().optional() // Optional für anonyme Votes
+});
+
+export type Vote = z.infer<typeof VoteSchema>;
+
+export const CreateVoteSchema = VoteSchema.omit({
+  id: true
+});
+
+export type CreateVote = z.infer<typeof CreateVoteSchema>;
+
+// Für die Abstimmungs-API
+export const SubmitVoteSchema = z.object({
+  pollId: z.string().uuid(),
+  optionId: z.string().uuid()
+});
+
+export type SubmitVote = z.infer<typeof SubmitVoteSchema>;
