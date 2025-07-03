@@ -40,6 +40,7 @@ class: align-top
 ```bash
 # Neue AnalogJS-App erstellen
 npm create analog@latest
+npx create-nx-workspace@latest --preset=@analogjs/platform
 ```
 
 > 💡 **Enterprise-tauglich:** Ideal für skalierbare, modulare Anwendungen mit bewährten Angular-Konzepten und moderner Developer Experience.

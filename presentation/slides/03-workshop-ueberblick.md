@@ -5,7 +5,7 @@ layout: default
 # Über diesen Workshop
 Zielsetzung
 
-- Entwicklung einer modernen Polling-App mit **AnalogJS**
+- Entwicklung einer modernen Web-App mit **AnalogJS**
 - Fokus auf **Feature-orientierte Architektur**
 - Einsatz des **File-Routers** und **OAuth2-Authentifizierung**
 - Prinzipien **stateless Architektur** für Skalierbarkeit

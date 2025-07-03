@@ -47,4 +47,4 @@ export default defineConfig(({ mode }) => {
 });
 ```
 
-> ✅ Mit **additionalPagesDirs** können Routes aus verschiedenen Feature-Libraries automatisch eingebunden werden.
+> ✅ Mit **additionalPagesDirs** können Routen aus verschiedenen Feature-Libraries automatisch eingebunden werden.

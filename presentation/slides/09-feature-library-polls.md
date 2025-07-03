@@ -9,20 +9,23 @@ class: align-top
 
 ### Interne Struktur
 
+<div class="mr-6 "> 
+
 ```bash
 libs/polls/
 ├── src/
 │   ├── lib/
 │   │   ├── services/          # Geschäftslogik
 │   │   ├── components/        # UI-Komponenten
-│   │   ├── models/            # Interfaces
-│   │   └── schema/            # Zod-Schema
+│   │   └── models/            # Zod-Schema / Types
 │   ├── pages/                 # Routen
 │   │   └── polls/             # /polls Route
 │   └── api/                   # Backend
 │       └── polls/             # /api/polls Route
 └── index.ts                   # Public API
 ```
+
+</div>
 
 **Vorteile der Feature-Struktur:**
 - 📦 Alles an einem Ort: UI, Logic, API, Routing

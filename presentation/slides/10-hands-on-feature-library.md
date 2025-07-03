@@ -13,6 +13,6 @@ layout: center
    - NX-Befehl ausführen: `nx g @nx/angular:library --name=polls ...`
    - Pages-Verzeichnis mit korrekter Struktur anlegen
    - Beispielkomponente implementieren
-3. **Checkpoint**: Git-Branch `checkpoint-2-feature-library`
+3. **Checkpoint**: Git-Branch `02-add-feature-lib`
 
 > ✅ **Erwartetes Ergebnis:** Eine lauffähige Feature-Library mit Route-Integration
