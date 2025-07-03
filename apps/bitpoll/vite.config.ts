@@ -26,6 +26,8 @@ export default defineConfig(({ mode }) => {
       tailwindcss(),
 
       analog({
+        additionalPagesDirs: ['/libs/polls'],
+        additionalAPIDirs: ['/libs/polls/src/api'],
         prerender: {
           routes: [],
         },
