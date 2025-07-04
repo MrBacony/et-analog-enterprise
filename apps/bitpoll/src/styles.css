@@ -2,6 +2,9 @@
 @import './styles/material.css';
 @import 'tailwindcss';
 
+/* Tell Tailwind where to look for classes */
+@source "../../../libs";
+
 /* Tailwind v4 theme configuration based on Angular Material colors */
 @theme {
   /* Primary colors */
