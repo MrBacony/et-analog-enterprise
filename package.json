@@ -7,6 +7,7 @@
   },
   "private": true,
   "dependencies": {
+    "@analog-tools/inject": "^0.0.4",
     "@analogjs/content": "^1.19.0",
     "@analogjs/router": "^1.19.0",
     "@analogjs/trpc": "~0.4.0",
