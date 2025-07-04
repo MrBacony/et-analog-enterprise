@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { MatCard } from '@angular/material/card';
+import { CreatePoll } from "../../lib/polls/components/create-poll/create-poll";
 @Component({
   selector: 'lib-polls-create-page',
-  imports: [MatCard],
-  template: ` <mat-card><h1>Polls Create Page</h1></mat-card> `,
+  imports: [CreatePoll],
+  template: `<lib-create-poll/> `,
 })
 export default class PollsCreatePageCompoent {}
