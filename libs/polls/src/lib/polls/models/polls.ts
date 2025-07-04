@@ -24,6 +24,11 @@ export const PollSchema = z.object({
 
 export type Poll = z.infer<typeof PollSchema>;
 
+export const PollsListSchema = z.array(PollSchema);
+
+export type PollsList = z.infer<typeof PollsListSchema>;
+
+
 export const CreatePollSchema = PollSchema.omit({
   id: true
 }).extend({

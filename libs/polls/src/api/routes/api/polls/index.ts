@@ -3,5 +3,16 @@ import { PollsService } from '../../../services/polls.service';
 import { inject } from '@analog-tools/inject';
 
 export default defineEventHandler((event: H3Event) => {
-    return inject(PollsService).getPolls(); 
+    return inject(PollsService).getPolls().map(poll => {
+        return {
+            id: 1,
+            question: poll.question,
+            name: poll.name,
+            owner: poll.owner,
+            options: poll.options.map(option => ({
+                id: option.id,
+                value: option.value
+            }))
+        };
+    });
 });
