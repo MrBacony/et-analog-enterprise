@@ -45,7 +45,7 @@ import { RouterModule } from '@angular/router';
                     mat-raised-button 
                     color="primary"
                     class="md:w-full lg:w-auto"
-                    [routerLink]="['/polls', poll.id, 'vote']">
+                    [routerLink]="['/polls', poll.id]">
                     <mat-icon>how_to_vote</mat-icon>
                     Vote Now
                   </button>

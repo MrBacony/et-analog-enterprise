@@ -17,6 +17,9 @@ export default defineConfig(({ mode }) => {
       reportCompressedSize: true,
       target: ['es2020'],
     },
+    ssr: {
+      noExternal: ['@analog-tools/auth'],
+    },
     server: {
       fs: {
         allow: ['.'],
